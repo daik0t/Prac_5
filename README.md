@@ -17,11 +17,11 @@
 - [x] 9 (1 + x)^m
 - [ ] 10 (1 - x)^m
 
-#Фукнция sh(x) = $\sum_{i=1}^n \frac{2^{2i+1}}{(2i+1)!} 
+#Фукнция sh(x) = $\displaystyle\sum_{i=0}^n \frac{x^{2i+1}}{(2i+1)!}$
 
 ``` python
 result = 0
-for i in range(1, iter):
+for i in range(0, iter):
 	result += (x ** (2 * i + 1)) / factorial(2 * i + 1)
 return result
 ```
