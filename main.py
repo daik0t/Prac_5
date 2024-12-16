@@ -2,13 +2,45 @@
 from math import factorial
 from decimal import Decimal
 
-def sh(x, iter = 1000):
+def sh(x, iter = 1000) -> Decimal:
+    """
+    Вычисляет значение sh(x) с помощью ряда Маклорена
+    
+    Parametrs:
+        x (Decimlal) : Значение x
+        iter (int) : Значение итераций по умолчанию 1000
+        
+    Returns:
+        result (Decimal) : Результат, sh(x)
+    
+    Raises: 
+        None
+    
+    Example:
+        sh(145) = 4.695370643323848906577025200E+62
+    """
     result = 0
-    for i in range(1, iter):
+    for i in range(0, iter):
         result += (x ** (2 * i + 1)) / factorial(2 * i + 1)
     return result
 
-def ln(x, iter = 1000):
+def ln(x, iter = 1000) -> Decimal:
+    """
+    Вычисляет значение ln(1 - x) с помощью ряда Маклорена
+    
+    Parametrs:
+        x (Decimlal) : Значение x
+        iter (int) : Значение итераций по умолчанию 1000
+        
+    Returns:
+        result (Decimal) : Результат, ln(1 - x)
+    
+    Raises: 
+        None
+    
+    Example:
+        ln(1 - 0.1547) = -0.1680636850472550685946214605
+    """
     if x > 1 or x <= -1:
         print("x Должен быть от -1 до 1")
         return
