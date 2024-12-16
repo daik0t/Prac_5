@@ -7,4 +7,10 @@ def sh(x, iter = 1000):
         result += (x ** (2 * i + 1)) / factorial(2 * i + 1)
     return result
 
-print(sh(100))
+def ln(x, iter = 1000):
+    result = 0
+    for i in range(1, iter):
+        result -= (x ** i) / i
+    return result
+
+print(ln(0.14))
