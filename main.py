@@ -67,6 +67,9 @@ def last(x, m, iter = 1000):
     Example:
         (1 + 0.99)^99 = 3.858820389035114583782003580E+29
     """
+    if x > 1 or x < -1:
+        print("x Должен быть от -1 до 1")
+        return
     summ = 1
     k = 1
     for i in range (-1, iter):
