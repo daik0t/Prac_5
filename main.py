@@ -98,7 +98,7 @@ while True:
                 print(t)
         if option == "3":
             try:
-                m = int(input("Введите число m"))
+                m = int(input("Введите число m: "))
             except ValueError:
                 print("m Должно быть числеком")
                 continue
