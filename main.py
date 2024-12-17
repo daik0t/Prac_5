@@ -50,7 +50,29 @@ def ln(x, iter = 1000) -> Decimal:
     return result
 
 def last(x, m, iter = 1000):
-    pass
+    """
+    Вычисляет значение (1 + x)^m с помощью ряда Маклорена
+
+    Parametrs:
+        x (Decimal): Значение x
+        iter (int): Значение итераций по умолчанию 1000
+        m (Decimal): Значение m
+
+    Returns:
+        summ (Decimal): Результат, (1 + x)^m
+
+    Raises:
+        None
+
+    Example:
+        (1 + 0.99)^99 = 3.858820389035114583782003580E+29
+    """
+    summ = 1
+    k = 1
+    for i in range (-1, iter):
+        k = k*(m-(i+1))
+        summ = summ + (k/factorial(i+2))*(x**(i+2))
+    return summ
 
 while True:
     option = input("1) sh(x), (-∞ < x < +∞)\n\
@@ -78,7 +100,7 @@ while True:
                 print("m Должно быть числеком")
                 continue
             else:
-                last(x, m)
+                print(last(x, Decimal(m)))
     if input("Продолжить? y/n\n") != "y":
         print("Пока")
         break
