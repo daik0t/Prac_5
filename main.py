@@ -1,6 +1,6 @@
 """Функции 4, 7 и 9(напарник)"""
 from math import factorial
-from decimal import Decimal
+from decimal import Decimal, InvalidOperation
 
 def sh(x, iter = 1000) -> Decimal:
     """
@@ -87,7 +87,7 @@ while True:
         continue
     try:
         x = Decimal(input("Введите x: "))
-    except ValueError:
+    except InvalidOperation:
         print("x Должен быть чиселком")
     else:
         if option == "1":
@@ -99,11 +99,13 @@ while True:
         if option == "3":
             try:
                 m = int(input("Введите число m: "))
-            except ValueError:
+            except InvalidOperation:
                 print("m Должно быть числеком")
                 continue
             else:
-                print(last(x, Decimal(m)))
+                t = last(x, Decimal(m))
+                if t != None:
+                    print(t)
     if input("Продолжить? y/n\n") != "y":
         print("Пока")
         break
